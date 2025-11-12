@@ -1,0 +1,50 @@
+mainmenu "xInit 1.0 Configuration"
+
+menu "General options"
+
+config STATIC
+	bool "Link statically"
+	default n
+
+choice
+	prompt "Build architecture"
+	default TARGET_HOST
+
+config TARGET_HOST
+	bool "Host"
+
+config TARGET_I386
+	bool "i386"
+
+config TARGET_X86_64
+	bool "x86_64"
+
+endchoice
+
+endmenu
+
+menu "Startup system"
+config MOUNT_FS
+	bool "Auto-mount filesystems on startup"
+	default n
+
+config MOUNT_FS_DEV
+	bool "Mount /dev"
+	default n
+	depends on MOUNT_FS
+
+config MOUNT_FS_PROC
+	bool "Mount /proc"
+	default n
+	depends on MOUNT_FS
+
+config MOUNT_FS_SYS
+	bool "Mount /sys"
+	default n
+	depends on MOUNT_FS
+
+config MOUNT_FS_TMP
+	bool "Mount /tmp"
+	default n
+	depends on MOUNT_FS
+endmenu

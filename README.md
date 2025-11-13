@@ -40,21 +40,21 @@ cp output/* ../your-linux-initrd/sbin
 mkdir fastrc
 ```
 #### Now create an inittab (/etc/fastrc/inittab) like this:
-```xinit
+```fastrc
 # Example inittab for FastRC
 # Main script/program
-sysinit=/etc/xinit/rcS
+sysinit=/etc/fastrc/rcS
 # Script/program that runs before poweroff
-shutdown=/etc/xinit/poweroff
+shutdown=/etc/fastrc/poweroff
 # Script/program that runs before reboot
-reboot=/etc/xinit/poweroff
+reboot=/etc/fastrc/poweroff
 # Script/program that runs for ctrl+alt+del
 ctrlaltdel=/sbin/reboot
 # Script/program that runs forever
 respawn=/bin/getty tty0
 ```
 #### Then, create a configuration file (/etc/fastrc/conf) like this:
-```xinit
+```fastrc
 # Example configuration for FastRC
 # Verbose messages (1 to enable, 0 to disable)
 verbose=0
@@ -64,7 +64,7 @@ verbose=0
 ```bash
 ln -s sbin/fastrc init
 ```
-### Congrats, you have put xInit to your linux distro! It should look like this:
+### Congrats, you have put FastRC to your linux distro! It should look like this:
 ```
 initrd
 ├── etc/

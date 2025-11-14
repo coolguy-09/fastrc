@@ -20,7 +20,8 @@ endif
 ifeq ($(CONFIG_TARGET_I386),y)
 CFLAGS += -m32
 LDFLAGS += -m32
-else ifeq ($(CONFIG_TARGET_X86_64),y)
+endif
+ifeq ($(CONFIG_TARGET_X86_64),y)
 CFLAGS += -m64
 LDFLAGS += -m64
 endif
